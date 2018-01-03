@@ -17,14 +17,20 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout():void {
+     localStorage.removeItem('currentUser');
+  }
 }
 
+/*
 export const router: Routes = [
     {
         path: '',
        children:[
 	 	{path: 'addItem/:groupName', component:AddItemComponent},
 	 	{path: 'addGroup', component:AddGroupComponent},
+
 	  	]
 	}
 ];
+*/
