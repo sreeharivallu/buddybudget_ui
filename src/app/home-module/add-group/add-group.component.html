@@ -1,0 +1,113 @@
+<div class="container myBg">
+
+<div>
+	<button type="button" class="btn btn-default btn-sm" (click)="groupAdd = !groupAdd">
+		<span class="glyphicon glyphicon-plus"> </span> Add group
+	</button>
+
+	<div *ngIf="groupAdd">
+	
+		<div class="form-group">
+	    <label for="groupname">groupname:</label>
+	    <input type="text" class="form-control" name="groupname" id="groupname" [(ngModel)]="group.groupName">
+	  </div>
+	  <div class="form-group">
+	    <label for="partner">partner:</label>
+	    <input type="text" class="form-control" name="partner" id="partner" [(ngModel)]="group.partner">
+	  </div>
+
+	    <button type="button" class="btn btn-info btn-sm" (click)="addGroup();">
+		<span>  Done </span>
+		</button>
+	</div>
+	
+</div>
+
+<div class="row">
+<!--img src="../../assets/brand_scenary.jpg" alt="" style="width:100%;height:60vh"-->
+	
+	<div class="col-sm-8" style="height: 400px;">		
+
+		
+		<div class="row">
+			   
+			<div class="col-sm-1">
+			</div>			
+			<div class="col-sm-11"  style="border:1px solid;height: 350px;background-color: green">
+			<!--div class="table-responsive">
+				  <table class="table">
+				    <thead>
+				     <tr>
+				     	<th> itemname </th>
+				     	<th> amount </th>
+				     </tr> 
+				    </thead>
+				    <tbody>
+				    	<tr *ngFor="let group of groupList;let i = index" (click)="setSelectedGroup(i)" [class.active]="i == groupIndex">
+				    	
+				    	<td> {{group.groupName}} </td>
+				    	<td>  {{group.groupAmount}} </td>
+				    	<td>  {{group.owner}} </td>
+				    	<td> <a [routerLink]="['/addItem/:groupName',{groupName:group.groupName}]"> AddItem </a></td>
+				    	
+				    	</tr>
+				    </tbody>
+				  </table>
+				</div-->
+
+
+				
+					
+
+
+
+	<div id="panel-group">
+	  <div class="panel panel-default" *ngFor="let group of groupList;let i = index;" (click)="setSelectedGroup(i)">
+	    <div class="panel-heading" (click) = "current = i">	    
+	       <h5 class="panel-title panel-h5">
+	          <i class='glyphicon' 
+	            [class.glyphicon-chevron-right] = "i != current"
+	            [class.glyphicon-chevron-down] = "i == current" ></i>   {{group.groupName}}
+	       </h5>
+	       <button type="button" class="btn btn-info btn-sm panel-del" (click)="deleteGroup(group.groupName);">
+			<span class="glyphicon glyphicon-trash">  Delete </span>
+			</button>		
+	    </div>
+	     <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
+	      <div class="panel-body">
+	      	<div>
+	      	 Total Amount: {{group.groupAmount}}
+	      	</div>
+	      	<div>
+	      	  <ul  *ngFor="let partner of group.partnerAmounts">
+	      	   <li> <span> {{partner.partnername}}</span> : <span> {{partner.partnerAmount}}</span> </li>
+	      	  </ul> 
+	      	</div>
+	      	<div>
+	      	 <a [routerLink]="['/addItem/:groupName',{groupName:group.groupName}]"> AddItem </a>
+	      	</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+
+	<!--div class="col-sm-4" style="height: 400px;"> 
+	</div>
+	<div class="col-sm-4" style="height: 400px;">
+		<div style="border:1px solid;height: 350px;background-color: green">
+		<div *ngIf="selectedGroup">
+		<h4> {{groupList[groupIndex].groupName}}:</h4> 
+			<ul>
+				<li>{{groupList[groupIndex].partner}}</li>
+			</ul>
+		</div>
+		</div>
+	</div-->
+ 
+		</div>
+		</div>
+	</div>
+</div>
+		
