@@ -17,6 +17,7 @@ export class httpserviceClass{
 
 	postData(path, data, headers?:Headers){
 
+ 		//let url = 'https://buddybudgetapi.herokuapp.com/' + path;
  		let url = 'http://localhost:3000/' + path;
         //let headers  = data.headers;
 		console.log('data is', data);
@@ -35,6 +36,7 @@ export class httpserviceClass{
 	}
 
 	getData(path, headers?:Headers){
+		//let url = 'https://buddybudgetapi.herokuapp.com/' + path;
 		let url = 'http://localhost:3000/' + path;
 		return this.http.get(url, {headers:headers})
 		.map(response=> response.json());

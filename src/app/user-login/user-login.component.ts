@@ -8,7 +8,7 @@ import { sharedserviceClass } from '../mySharedservice';
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+  styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
   error;
@@ -30,6 +30,7 @@ export class UserLoginComponent implements OnInit {
           localStorage.setItem('currentUser',
                JSON.stringify({ username: this.model.username, token: res.token }));
           this.sharedservice.setusername(this.model.username);
+          console.log("this.sharedservice.getusername()", this.sharedservice.getusername());
           this.sharedservice.settoken(res.token);
           this.router.navigate(['home']);  
         }else{

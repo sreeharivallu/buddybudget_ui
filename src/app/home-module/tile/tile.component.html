@@ -1,0 +1,15 @@
+<div class="tile">
+    <div class="upper-section" [style.background]="tile_background">
+        <div class="tile-image float-left">
+            <!--img class="tile-img" src="../../../assets/images/{{tile_image}}" alt="{{tile_image}}"-->
+            <span>{{tile_image}} </span>
+        </div>
+        <div class="text-right right-section">
+            <div class="tile-count">{{tile_count}}</div>
+            <div class="tile-title">{{tile_title}}</div>
+        </div>
+    </div>
+    <div class="lower-section">
+        <div class="tile-link"><a routerLink="{{tile_link}}">{{tile_link}}</a></div>
+    </div>
+</div>

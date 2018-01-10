@@ -12,7 +12,7 @@ import { sharedserviceClass } from '../mySharedservice';
 @Component({
   selector: 'app-user-signup',
   templateUrl: './user-signup.component.html',
-  styleUrls: ['./user-signup.component.css']
+  styleUrls: ['./user-signup.component.scss']
 })
 export class UserSignupComponent implements OnInit {
 
@@ -24,8 +24,8 @@ export class UserSignupComponent implements OnInit {
 
   }
 
-  submitSignupForm(signupData){
-  	console.log("signupData", signupData);
+  submitSignupForm(){
+  	
   	console.log('this.reg is', this.reg);
 
   	this.httpservice.postData("signup", this.reg)

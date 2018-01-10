@@ -1,3 +1,20 @@
+
+.noMargin{
+	margin-top: 0px;
+	margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.noPad{
+	padding-left: 0px;	
+}
+
+.groupbody {
+	height: 350px;
+	background-color: tomato;
+	width: 100%;
+}
+
 .panel-h5 { 
 	display: inline-block;
 }
@@ -17,8 +34,6 @@
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
-
-
 
 .table tr.active td {
   background-color:#123456 !important;

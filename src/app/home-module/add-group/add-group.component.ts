@@ -8,12 +8,14 @@ import { httpserviceClass } from '../../myHttpservice';
 @Component({
   selector: 'app-add-group',
   templateUrl: './add-group.component.html',
-  styleUrls: ['./add-group.component.css']
+  styleUrls: ['./add-group.component.scss']
 })
 export class AddGroupComponent implements OnInit {
 
   current: number = 0;
+  groupAdd: boolean = false;
   group:any = {};
+  groups:any;
   groupList;
   delGroup:any = {};
   selectedGroup;
@@ -25,22 +27,22 @@ export class AddGroupComponent implements OnInit {
   constructor(private router: Router, private sharedservice: sharedserviceClass, private httpservice: httpserviceClass) { }
 
   ngOnInit() {
+
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    console.log('xxxxx ====', this.currentUser);
     this.headers = new Headers();
       this.headers.append('Authorization','Bearer ' + this.currentUser.token);
     this.httpservice.getData("listGroup", this.headers)
       .subscribe(res => {
-        console.log('groupList res is', res);
-        
-          this.groupList = res;          
-        
+        console.log('groupList res is', res);        
+
+          this.groups = res;
         
     })
   }
 
   addGroup(){
-  	this.group.username = this.sharedservice.getusername();
-  	
+  
   	if (this.currentUser) {
       // logged in so return true
       console.log('current.token user is', this.currentUser.token);
@@ -52,8 +54,8 @@ export class AddGroupComponent implements OnInit {
       this.httpservice.postData("addGroup", this.group, this.headers)
       .subscribe(res => {
         console.log('addItem res is', res);
-        this.groupList = res;
-        this.router.navigate(['addItem',this.group.groupName]);
+        this.groups = res;
+        //this.router.navigate(['home','addItem',this.group.groupName]);
       })
     }else{
       this.router.navigate(['login']);

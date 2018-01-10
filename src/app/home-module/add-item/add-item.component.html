@@ -1,9 +1,8 @@
 
-<div class="container myBg">
+<div class="container">
 <div class="row">
 <!--img src="../../assets/brand_scenary.jpg" alt="" style="width:100%;height:60vh"-->
 <a href="" (Click)="goBack()"> back </a>
-<h1> Hello AddItem </h1>
 
 	<div class="col-sm-4" style="height: 400px;">		
 
@@ -12,7 +11,7 @@
 			   
 			<div class="col-sm-1">
 			</div>			
-			<div class="col-sm-11"  style="border:1px solid;height: 350px;background-color: green">
+			<div class="col-sm-11"  style="height: 100%;background-color: tomato;margin-top: 10px">
 			<form id="contact_form" #addItemForm="ngForm" (ngSubmit)="addItem(addItemForm)">
 
 			 <div class="form-group">
@@ -37,7 +36,7 @@
 			  </div>
 
 			  <div class="form-group">			    
-			    <input type="submit" class="form-control">
+			    <input type="submit" class="form-control btn btn-primary">
 			  </div>
 			  </form>
 			</div>
@@ -51,7 +50,7 @@
 
 	<div class="col-sm-4" style="height: 400px;">
 		<div class="row">			
-			<div class="col-sm-11"  style="border:1px solid;height: 300px;background-color: green">
+			<div class="col-sm-11"  style="border:1px solid;height: 100%;background-color: tomato">
 				<div class="table-responsive">
 				  <table class="table">
 				    <thead>

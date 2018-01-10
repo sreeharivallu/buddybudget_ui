@@ -8,13 +8,14 @@ import { AddGroupComponent } from './add-group/add-group.component';
 import { UserLoginComponent } from '../user-login/user-login.component';
 
 export const router: Routes = [
-    {
-        path: '',  component: HomeComponent,
+  //  { path: '', redirectTo: 'welcome', pathMatch: 'full'}, 
+    //{ path: 'welcome',  component: HomeComponent,
+    { path: '', component: HomeComponent,
        children:[
-	 	{path: 'addItem/:groupName', component:AddItemComponent},
-	 	{path: 'addGroup', component:AddGroupComponent},
+        //{path: '', redirectTo:'addGroup', pathMatch: 'full' },
+	 	{path: 'addItem/:groupName/:id', component:AddItemComponent},
+	 	{path: 'addGroup', component:AddGroupComponent}
 	  	]
-	  	
 	},
 	//{path: 'logout', component:UserLoginComponent}
 ];

@@ -1,18 +1,26 @@
-<nav class="navbar navbar-default noMargin">
+<nav class="navbar navbar-default noMargin topnav">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Budget</a>
+      <a class="navbar-brand" [routerLink]="['/home']">Budget</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li> <a [routerLink]="['/addGroup']"> addgroup </a> </li>
-    </ul>
+    <!--ul class="nav navbar-nav">
+      <li> <a [routerLink]="['addGroup']"> addgroup </a> </li>
+    </ul-->
     <ul class="nav navbar-nav navbar-right">
- 		<li> <a [routerLink]="['/login']" (click)=logout() > logout </a> </li>     
+ 		<li> <a [routerLink]="['/login']" (click)=logout() > logout </a> </li>
+    <li> <a [routerLink]="['/profile']"> profile </a> </li>     
     </ul>
   </div>
 </nav>
 
-<div class="home-bg">
- <router-outlet></router-outlet>
+<div>
+  <div class="sidenav">
+    <a [routerLink]="['addGroup']"> addgroup </a>
+  </div>
 
+  <div class="home-bg main">
+      <tile *ngFor="let tile of tiles" [tile_image]="tile.tile_img" [tile_link]="tile.tile_link"> </tile>      
+
+      <router-outlet></router-outlet>
+  </div>  
 </div>

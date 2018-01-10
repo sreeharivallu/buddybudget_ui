@@ -29,8 +29,8 @@ import { sharedserviceClass } from './mySharedservice';
     BrowserModule,
     routes,
     HttpModule,
-    FormsModule,
-    HomeModuleModule
+    FormsModule
+    //HomeModuleModule
   ],
   providers: [httpserviceClass, sharedserviceClass],
   bootstrap: [AppComponent]

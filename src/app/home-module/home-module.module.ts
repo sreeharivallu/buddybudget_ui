@@ -14,17 +14,17 @@ import { AddItemComponent } from './add-item/add-item.component';
 //services
 import { httpserviceClass } from '../myHttpservice';
 import { sharedserviceClass } from '../mySharedservice';
+import { TileComponent } from './tile/tile.component';
 
 @NgModule({
   imports: [
     CommonModule,
-   // BrowserModule,
+  //  BrowserModule,
     routes,
     HttpModule,
-    FormsModule,
-    routes
+    FormsModule
   ],
-  declarations: [HomeComponent, AddGroupComponent, AddItemComponent],
+  declarations: [HomeComponent, AddGroupComponent, AddItemComponent, TileComponent],
   providers: [httpserviceClass, sharedserviceClass],
 })
 export class HomeModuleModule { }

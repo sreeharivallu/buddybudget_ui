@@ -8,7 +8,7 @@ import { httpserviceClass } from '../../myHttpservice';
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css']
+  styleUrls: ['./add-item.component.scss']
 })
 export class AddItemComponent implements OnInit {
 
@@ -19,11 +19,9 @@ export class AddItemComponent implements OnInit {
   private params:any;
   private currentUser;
   private headers;
+  private id;readonly
   constructor(private location:Location,private router:Router, private activatedRoute:ActivatedRoute, private sharedservice: sharedserviceClass, private httpservice: httpserviceClass) { 
-    
-  	this.myusername = this.sharedservice.getusername();
-  	console.log("myusername is", this.myusername);
-
+      	
   	 // read the route parameter in constructor
   	      var self = this;
            var gg = this.activatedRoute.snapshot.queryParams["groupName"];
@@ -40,12 +38,14 @@ export class AddItemComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
     this.headers = new Headers();
     this.headers.append('Authorization','Bearer ' + this.currentUser.token);
+    this.myusername = this.currentUser.username;
 
         this.params = this.activatedRoute.params.subscribe( params => {
          console.log(params);
          this.groupName = params['groupName'];
+         this.id = params['id'];
         console.log('this group is', this.headers);
-         this.httpservice.getData("listItems/" + this.groupName, this.headers)
+         this.httpservice.getData("listItems/" + this.groupName + '/' + this.id, this.headers)
           .subscribe(res => {
             console.log('itemList in res is', res.itemList);
             this.itemList = res.itemList;
@@ -58,8 +58,9 @@ export class AddItemComponent implements OnInit {
   	console.log('item details are', this.item);
   	console.log('form Inputs are', itemData.value);
 
+    let data = {id:this.id,itemData:itemData.value};
 
-  	this.httpservice.postData("addItem", itemData.value, this.headers)
+  	this.httpservice.postData("addItem", data, this.headers)
   	.subscribe(res => {
   		console.log('addItem res is', res.itemList);
   		this.itemList = res.itemList;

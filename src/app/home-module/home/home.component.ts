@@ -8,13 +8,23 @@ import { AddGroupComponent } from '../add-group/add-group.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  
+  tiles: any = [];
   constructor() { }
 
   ngOnInit() {
+    var tileData:any = {};
+    tileData.tile_img = "Owned Groups";
+    tileData.tile_link = "addGroup";
+    this.tiles.push(tileData);
+
+    tileData.tile_img = "Partnered Groups";
+    tileData.tile_link = "addGroup";
+    this.tiles.push(tileData);
+
   }
 
   logout():void {
